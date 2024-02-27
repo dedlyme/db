@@ -1,8 +1,8 @@
 <?php
 require "function.php";
 require "Database.php";
-
-$db = new Database();
+$config = require("config.php");
+$db = new Database($config);
 $posts = $db
     ->execute("SELECT * FROM posts")
     ->fetchAll();
