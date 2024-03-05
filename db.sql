@@ -1,11 +1,4 @@
-CREATE TABLE job_titles (
-	id PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	title VARCHAR(40) NOT NULL
-);
-
-
-
-CREATE DATABASE blog_IPb22;
+ CREATE DATABASE blog_IPb22;
 
 USE blog_IPb22;
 
@@ -19,3 +12,23 @@ INSERT INTO posts
 VALUES
 ("My First Blog Post"),
 ("My Second Blog Post");
+
+CREATE TABLE categories (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NULL
+);
+
+INSERT INTO categories (name) VALUES 
+('sport'),
+('music'),
+('food');
+
+ALTER TABLE posts
+ADD COLUMN category_id INT;
+
+ALTER TABLE posts
+ADD  FOREIGN KEY (category_id)
+    REFERENCES categories(id);
+
+
