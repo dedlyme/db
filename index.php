@@ -30,5 +30,6 @@ $posts = $db
           ->execute($query, $params)
           ->fetchAll();
 
+$title = "Posts👨🏿";
 
-require "index.view.php";
+require "views/index.view.php";
