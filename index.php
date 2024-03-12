@@ -1,33 +1,34 @@
 <?php
-require "function.php";
+require "functions.php";
 require "Database.php";
+
 
 $config = require("config.php");
 
-$pams = "SELECT * FROM caregories";
+$db = new Database($config);
 
 $query = "SELECT * FROM posts";
 $params = [];
 
-if (isset($_GET["id"]) && $_GET["id"] != ""){
-    $id = $_GET["id"];
-    $query .= " WHERE id=:id";
-    $params = [":id" => $id];
+if (isset($_GET["id"]) && $_GET["id"] != "") {
+  $id = $_GET["id"];
+  $query .= " WHERE id=:id";
+  $params[":id"] = $id;
 }
-$db = new Database($config);
+
+if (isset($_GET["category"]) && $_GET["category"] != "") {
+  $category = trim($_GET["category"]);
+  $query .= " JOIN categories
+              ON posts.category_id = categories.id
+              WHERE categories.name = :category
+            ";
+  $params[":category"] = $category;
+}
+
+
 $posts = $db
-    ->execute($query, $params)
-    ->fetchAll();
-
-echo "<form>";
-echo "<input name='id' />";
-echo "<button>Submit></button>";
-echo"</form>";
+          ->execute($query, $params)
+          ->fetchAll();
 
 
-echo "<h1>posts</h1>";
-echo "<ul>";
-foreach($posts as $post) {
-    echo "<li>" . $post["title"] . "</li>";
-}
-echo"</ul>";
+require "index.view.php";
