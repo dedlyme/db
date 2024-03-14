@@ -1,7 +1,7 @@
 <header>
     <nav>
-        <a href="about.php">About us</a>
-        <a href="index.php">main posts</a>
-        <a href="story.php">Story</a>
+        <a href="/about">About us</a>
+        <a href="/">main posts</a>
+        <a href="/story">Story</a>
     </nav>
 </header>
