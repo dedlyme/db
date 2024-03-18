@@ -45,6 +45,10 @@ UPDATE posts
 SET category_id = 3
 WHERE id = 2;
 
+INSERT INTO posts
+(title, category_id)
+VALUES
+("Blog3" , 2);
 
 SELECT * FROM posts;
 
