@@ -4,10 +4,10 @@
 <?php require "components/navbar.php";?>
 
 <form method="POST">
-    <lable>Title:
-    <input name="matiss"/>
+    <lable>title:
+    <input name="title"/>
     </lable>
-    <lable>Category ID:
+    <lable>category ID:
     <input name="category-id"/>
     </lable>
     <button>Save</button>
