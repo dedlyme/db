@@ -1,3 +1,15 @@
+label {
+position: relative;
+display: inline-block;
+}
+
+.invalid-data {
+  position: absolute;
+  top:100%;
+  left:0;
+  color: red;
+  font-size: 0.8em;
+}
 body, html {
     height: 100%;
   }
@@ -38,3 +50,4 @@ nav a:hover {
     background-color: #333; /* Change background color on hover */
     color: #fff; /* Change text color on hover */
 }
+

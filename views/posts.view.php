@@ -29,7 +29,7 @@
 <ul>
 <?php
   foreach($posts as $post) {
-  echo "<li>" . $post["title"] . "</li>";
+  echo "<li>" . htmlspecialchars( $post["title"]) . "</li>";
   }
   ?>
 </ul>
