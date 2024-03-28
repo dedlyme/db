@@ -1,5 +1,5 @@
-<?php require "components/head.php" ?>
-<?php require "components/navbar.php" ?>
+<?php require "views/components/head.php" ?>
+<?php require "views/components/navbar.php" ?>
 
 <form>
  <input name='id' value='<?= ($_GET["id"] ?? "") ?>'/>
@@ -27,11 +27,12 @@
 <h1>Posts</h1>
 
 <ul>
-<?php
-  foreach($posts as $post) {
-  echo "<li>" . htmlspecialchars( $post["title"]) . "</li>";
-  }
-  ?>
+<?php foreach($posts as $post) { ?>
+  <li>
+    <?= htmlspecialchars($post["title"])?>
+    <form class="delete-form" method="POST" action="/delete"><button name="id" value="<?= $post["id"] ?>">Delete</button></form>
+  </li>
+<?php } ?>
 </ul>
-<?php require "components/footer.php" ?>
+<?php require "views/components/footer.php" ?>
 

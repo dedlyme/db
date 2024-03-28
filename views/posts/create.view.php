@@ -1,7 +1,7 @@
 
 
-<?php require "components/head.php";?>
-<?php require "components/navbar.php";?>
+<?php require "views/components/head.php";?>
+<?php require "views/components/navbar.php";?>
 
 <form method="POST">
     <label>title:
@@ -23,4 +23,4 @@
     <button>Save</button>
 </form>
 
-<?php require "components/footer.php";?>
+<?php require "views/components/footer.php";?>
