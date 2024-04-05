@@ -1,4 +1,4 @@
-<?php
+<?php 
 require "Validator.php";
 require "Database.php";
 $config = require("config.php");
@@ -16,8 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $errors["category-id"] = "category id invalid";
     }
     if (empty($errors)) {
-        $query = " INSERT INTO posts (title, category_id) 
-        VALUE (:title, :category_id);";
+        $query = "UPDATE posts
+        SET title = :title, category_id = :category_id'
+        WHERE id = :id";
         $params = [
         ":title" => $_POST["title"],
         ":category_id" => $_POST["category-id"]
@@ -29,9 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
  }
 }
+$query = "SELECT * FROM posts WHERE id = :id";
+$params = [":id" => $_GET["id"]];
+
+$post = $db->execute($query, $params)->fetch();
 
 
-
-
-$title = "create a post";
-require "views/posts/create.view.php";
+require "views/edit.view.php";
