@@ -12,7 +12,7 @@
     </label>
     <label>category ID:
     <select name="category-id">
-    <option value="1">sport</option>
+    <option value="1">sport </option>
     <option value="2">music</option>
     <option value="3">food</option>
     </select>

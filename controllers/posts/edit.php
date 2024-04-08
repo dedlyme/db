@@ -17,12 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     if (empty($errors)) {
         $query = "UPDATE posts
-        SET title = :title, category_id = :category_id'
+        SET title = :title, category_id = :category_id
         WHERE id = :id";
         $params = [
         ":title" => $_POST["title"],
-        ":category_id" => $_POST["category-id"]
-        ];
+        ":category_id" => $_POST["category-id"],
+        ":id" => $_POST["id"]
+    ];
    
         $db->execute($query, $params);
         header('location: /');
@@ -36,4 +37,4 @@ $params = [":id" => $_GET["id"]];
 $post = $db->execute($query, $params)->fetch();
 
 
-require "views/edit.view.php";
+require "views/posts/edit.view.php";
