@@ -1,7 +1,7 @@
 <?php
 auth();
-require "Validator.php";
-require "Database.php";
+require "core/Validator.php";
+require "core/Database.php";
 $config = require("config.php");
 $db = new Database($config);
 

@@ -1,7 +1,7 @@
 
 <?php
 auth();
-require "Database.php";
+require "core/Database.php";
 $config = require("config.php");
 $db = new Database($config);
 
