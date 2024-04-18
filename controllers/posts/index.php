@@ -1,5 +1,5 @@
 <?php
-
+auth();
 require "Database.php";
 
 
